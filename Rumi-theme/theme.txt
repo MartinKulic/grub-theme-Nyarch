@@ -1,0 +1,154 @@
+# general settings
+title-text: ""
+desktop-image: "background.png"
+desktop-color: "#000000"
+terminal-font: "Terminus (TTF) Regular 16"
+terminal-left: "0"
+terminal-top: "0"
+terminal-width: "100%"
+terminal-height: "100%"
+terminal-border: "0"
+
++image {
+  file = "mirko_boku_1.png"
+  top = 0
+  left = 100%-584
+}
+
+# boot menu
++boot_menu {
+  left = 15%
+  width = 40%
+  top = 30%
+  height = 40%
+  item_font = "Rajdhani Regular 24"
+  item_color = "#5df8fd"
+  selected_item_font = "Rajdhani Regular 24"
+  selected_item_color = "#80FFCA"
+  icon_width = 24
+  icon_height = 24
+  item_height = 35
+  item_padding = 40 #40
+  item_icon_space = 20
+  item_spacing = 5
+  menu_pixmap_style = "no_*.png"
+  selected_item_pixmap_style = "highlight_*.png"
+}
+
+# Show progress
++ progress_bar {
+  left = 0%
+  top = 100%-30
+  width = 100%
+  height = 30
+  id = "__timeout__"
+  text= "@TIMEOUT_NOTIFICATION_LONG@"
+  font = "Rajdhani Regular 24"
+  fg_color = "#5df8fd"
+  bg_color = "#ee5650"
+  highlight_style = "progress_*.png"
+}
+
+# grub title
++ label {
+	font = "Rajdhani Regular 32"
+	left = 0
+	top = 8
+	width = 100%
+	align = "center"
+	color = "#842624"
+	text = "GR.U.B."
+}
+
++ label {
+	font = "Rajdhani Regular 24"
+	left = 0
+	top = 60
+	width = 100%
+	align = "center"
+	color = "#842624"
+	text = "GRand Unified Bootloader"
+}
+
+# decorative text
++ label {
+	font = "Rajdhani Regular 18"
+	left = 10
+	top = 50
+	width = 100%
+	color = "#842624"
+	text = "╔════════════════╗"
+}
+
++ label {
+	font = "Rajdhani Regular 18"
+	left = 10
+	top = 68
+	width = 100%
+	color = "#842624"
+	text = "║     [Menu 0]     ║"
+}
+
++ label {
+	font = "Rajdhani Regular 18"
+	left = 10
+	top = 86
+	width = 100%
+	color = "#842624"
+	text = "╟┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄╢"
+}
+
++ label {
+	font = "Rajdhani Regular 18"
+	left = 10
+	top = 104
+	width = 100%
+	color = "#842624"
+	text = "║ [>>] select OS ║"
+}
++ label {
+	font = "Rajdhani Regular 18"
+	left = 10
+	top = 122
+	width = 100%
+	color = "#842624"
+	text = "╙─┈  ┉ ┅━━ ┄┄┈┈┈━╜"
+}
+
+
+# controls
++ label {
+	font = "Rajdhani Regular 24"
+	left = 8
+	top = 100%-136
+	width = 100%
+	color = "#842624"
+	text = " ↑↓ - NAVIGATE"
+}
+
++ label {
+	font = "Rajdhani Regular 24"
+	left = 8
+	top = 100%-112
+	width = 100%
+	color = "#842624"
+	text = "<─┘ - CONFIRM"
+}
+
++ label {
+	font = "Rajdhani Regular 24"
+	left = 8
+	top = 100%-86
+	width = 100%
+	color = "#842624"
+	text = " E  - OPTIONS"
+}
+
++ label {
+	font = "Rajdhani Regular 24"
+	left = 8
+	top = 100%-60
+	width = 100%
+	color = "#842624"
+	text = " C  - COMMAND LINE"
+}

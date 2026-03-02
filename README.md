@@ -12,4 +12,4 @@ In case your screen resolution is diferent then 1920x1080, you may need to modif
 Grub theme bassed on:
 https://github.com/adnksharp/CyberGRUB-2077
 
-Rumi art by: Aelion Draws  |  https://www.patreon.com/aeliondraws
+Arch-chan art by: RavioliMavioli  | https://krita-artists.org/t/archlinux-chan/49206

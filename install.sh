@@ -3,9 +3,9 @@
 USE_BARK_ICON_OPTION="-bark-logo"
 
 THEMES_DIR="/boot/grub/themes"
-THIS_THEME_NAME="Rumi-theme"
+THIS_THEME_NAME="ArchChan-theme"
 GRUB_CNFG="/etc/default/grub"
-GRUB_CNFG_BACK=/etc/default/grub.backup
+GRUB_CNFG_BACK="/etc/default/grub.backup"
 
 # Check command avalibility
 function has_command() {

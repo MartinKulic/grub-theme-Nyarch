@@ -32,6 +32,7 @@ if [ ! -d "${THEMES_DIR}" ]; then
   echo "Creaded $THEMES_DIR"
 else
   echo "$THEMES_DIR already exists"
+fi
 
 # Copy theme
 echo "Copying theme to $THEMES_DIR"

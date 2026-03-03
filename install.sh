@@ -49,7 +49,7 @@ echo "Modifiing GRUB config"
  # back up GRUB conf
 cp -an $GRUB_CNFG $GRUB_CNFG_BACK
 
-if grep -q "GRUB_THEME=" "$GRUB_CNFG"; then
+if grep -q "^GRUB_THEME=" "$GRUB_CNFG"; then
   sed -i "s|^GRUB_THEME=.*|GRUB_THEME=\"${THEMES_DIR}/${THIS_THEME_NAME}/theme.txt\"|" "$GRUB_CNFG"
   else
     echo -e "\nGRUB_THEME=\"${THEMES_DIR}/${THIS_THEME_NAME}/theme.txt\"" >> "$GRUB_CNFG"

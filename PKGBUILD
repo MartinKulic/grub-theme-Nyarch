@@ -44,10 +44,12 @@ sha256sums=("SKIP")
 #	cd "$pkgname-$pkgver"
 #	make -k check
 #}
+install=$pkgname.install
+
+source=()
+sha256sums=()
 
 package() {
-	cd "$pkgname-$pkgver"
-	#make DESTDIR="$pkgdir/" install
-	exec ./install.sh
+	cd $srcdir
+	install -dm755 "./ArchChan-theme" "$pkgdir/usr/share/grub/themes"
 }
-

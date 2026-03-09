@@ -1,0 +1,36 @@
+GRUB_CNFG="/etc/default/grub"
+THIS_THEME_NAME="ArchChan-theme"
+THEMES_DIR="/usr/share/grub/themes/"
+
+
+post_install() {
+  # Modifie GRUB config
+  echo "Modifiing GRUB config"
+   # back up GRUB conf
+  #cp -an $GRUB_CNFG $GRUB_CNFG_BACK
+  
+  if grep -q "^GRUB_THEME=" "$GRUB_CNFG"; then
+    sed -i "s|^GRUB_THEME=.*|GRUB_THEME=\"${THEMES_DIR}/${THIS_THEME_NAME}/theme.txt\"|" "$GRUB_CNFG"
+    else
+      echo -e "\nGRUB_THEME=\"${THEMES_DIR}/${THIS_THEME_NAME}/theme.txt\"" >> "$GRUB_CNFG"
+  fi
+  
+  # Update grub config
+  echo -e "Updating grub..."
+  if has_command update-grub; then
+    update-grub
+  elif has_command grub-mkconfig; then
+    grub-mkconfig -o /boot/grub/grub.cfg
+  elif has_command grub2-mkconfig; then
+    if has_command zypper; then
+      grub2-mkconfig -o /boot/grub2/grub.cfg
+    elif has_command dnf; then
+      grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+    fi
+  fi
+
+}
+
+post_upgrade() {
+    post_install
+}

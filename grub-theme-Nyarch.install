@@ -2,6 +2,10 @@ GRUB_CNFG="/etc/default/grub"
 THIS_THEME_NAME="ArchChan-theme"
 THEMES_DIR="/usr/share/grub/themes/"
 
+function has_command() {
+  command -v $1 > /dev/null
+}
+
 
 post_install() {
   # Modifie GRUB config

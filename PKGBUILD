@@ -5,7 +5,6 @@
 
 # Maintainer: Your Name <youremail@domain.com>
 pkgname=grub-theme-Nyarch
-mysrcdir=ArchChan-theme
 pkgver=1.0
 pkgrel=1.0
 pkgdesc="Arch-chan themed Grub theme"
@@ -22,12 +21,15 @@ depends=("grub")
 #replaces=()
 backup=("etc/default/grub")
 #options=()
-#install=
 #changelog=
-source=("$pkgname-$pkgver.tar.gz")
 noextract=()
+#source=("$pkgname-$pkgver.tar.gz")
+source=()
 sha256sums=("SKIP")
 #validpgpkeys=()
+install=$pkgname.install
+
+
 
 #prepare() {
 #	cd "$pkgname-$pkgver"
@@ -44,10 +46,6 @@ sha256sums=("SKIP")
 #	cd "$pkgname-$pkgver"
 #	make -k check
 #}
-install=$pkgname.install
-
-source=()
-sha256sums=()
 
 package() {
 	cd $srcdir

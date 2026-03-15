@@ -32,9 +32,16 @@ terminal-border: "0"
 
 +image {
   file = "NyarchChan.png"
+  left = 55%
   top = 0
-  left = 100%-754
+  height = 100%
 }
+
+#+image {
+#  file = "NyarchChan.png"
+#  top = 0
+#  left = 100%-754
+#}
 
 # Show progress
 + progress_bar {

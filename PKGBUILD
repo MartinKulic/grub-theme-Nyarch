@@ -1,6 +1,6 @@
 # Maintainer: Your Name <ja@github.com>
 pkgname=grub-theme-Nyarch
-pkgver=1.0
+pkgver=1.1
 pkgrel=1
 pkgdesc="Arch-chan themed Grub theme"
 arch=("any")

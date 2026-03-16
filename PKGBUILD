@@ -1,4 +1,4 @@
-# Maintainer: Your Name <ja@github.com>
+# Maintainer: Your Name Martin J. Kulich
 pkgname=grub-theme-Nyarch
 pkgver=1.1
 pkgrel=1
@@ -16,9 +16,8 @@ noextract=()
 #source=("ArchChan-theme")
 sha256sums=()
 #validpgpkeys=()
+
 install=$pkgname.install
-
-
 
 package() {
 	cd $srcdir

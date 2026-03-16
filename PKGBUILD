@@ -21,7 +21,7 @@ install=$pkgname.install
 
 package() {
 	cd $srcdir
-	install -dm777 "$pkgdir/usr/share/grub/themes"	
+	install -dm755 "$pkgdir/usr/share/grub/themes"	
 	#cp -r "$srcdir/ArchChan-theme" "$pkgdir/usr/share/grub/themes"
 	cp -r "$startdir/ArchChan-theme" "$pkgdir/usr/share/grub/themes"
 }

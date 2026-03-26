@@ -1,13 +1,71 @@
-GRUB_CNFG="/etc/default/grub"
+#GRUB_CNFG="/etc/default/grub"
+GRUB_CNFG="./testing//grub"
 THIS_THEME_NAME="ArchChan-theme"
 THEMES_DIR="/usr/share/grub/themes/"
+#THEME_TXT_PATH="${THEMES_DIR}/${THIS_THEME_NAME}/Theme.txt"
+THEME_TXT_PATH="${THEMES_DIR}/${THIS_THEME_NAME}/Theme.txt"
+
+IMG_HEIGHT=1445
+IMG_WIDTH=1009
+
+IMG_PER_HEIGHT=100
+IMG_PER_LEFT=55
+IMG_TOP="0%"
 
 function has_command() {
   command -v $1 > /dev/null
 }
 
+function get_primary_resolution(){
+  
+  if has_command xrandr; then
+    xrandr | awk -F'[ +]' '/primary/{print $4}'
+    
+  else
+    return "fail"
+  fi
+}
+
+function calculate_img_percentage ()
+{
+  res="$1"
+
+  if  [ -z "$res" ] || [ "$res" = "fail" ]; then
+    echo "Failed to retreve screen resolution. Fallback values will be used."
+    return
+  fi
+  
+  monitor_width=${res%x*}
+  monitor_height=${res#*x}
+
+  echo "width: ${monitor_width} x height: ${monitor_height}"
+
+  new_img_width=$(( monitor_height * IMG_WIDTH / IMG_HEIGHT ))
+  
+  # if img would be wider then screen
+  if [ "$new_img_width" -ge "$monitor_width" ]; then
+    IMG_PER_HEIGHT=60
+    IMG_TOP="40%"
+
+    new_img_width=$(( (monitor_height * IMG_PER_HEIGHT / 100)  * IMG_WIDTH / IMG_HEIGHT))
+  fi
+
+  echo "new img width: $new_img_width"
+  IMG_PER_LEFT=$((100 - (new_img_width * 100 / monitor_width) )) 
+
+}
 
 post_install() {
+  # Calculate dimension of image
+  echo "Seting theme param"
+  
+  resolution=$(get_primary_resolution) 
+  calculate_img_percentage "$resolution"; 
+  
+  echo "Image dim: top: $IMG_TOP; left: $IMG_PER_LEFT; height: $IMG_PER_HEIGHT"
+  # Modifie theme.txt
+
+
   # Modifie GRUB config
   echo "Modifiing GRUB config"
    # back up GRUB conf
@@ -20,21 +78,24 @@ post_install() {
   fi
   
   # Update grub config
-  echo -e "Updating grub..."
-  if has_command update-grub; then
-    update-grub
-  elif has_command grub-mkconfig; then
-    grub-mkconfig -o /boot/grub/grub.cfg
-  elif has_command grub2-mkconfig; then
-    if has_command zypper; then
-      grub2-mkconfig -o /boot/grub2/grub.cfg
-    elif has_command dnf; then
-      grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
-    fi
-  fi
+#  echo -e "Updating grub..."
+#  if has_command update-grub; then
+#    update-grub
+#  elif has_command grub-mkconfig; then
+#    grub-mkconfig -o /boot/grub/grub.cfg
+#  elif has_command grub2-mkconfig; then
+#    if has_command zypper; then
+#      grub2-mkconfig -o /boot/grub2/grub.cfg
+#    elif has_command dnf; then
+#      grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+#    fi
+#  fi
 
 }
 
 post_upgrade() {
     post_install
 }
+
+#DELETE
+post_install

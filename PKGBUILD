@@ -8,6 +8,7 @@ url="https://github.com/MartinKulic/grub-theme-Nyarch"
 license=('unknown')
 groups=()
 depends=("grub")
+makedepends=("xrandr")
 #backup=("etc/default/grub")
 #options=()
 #changelog=

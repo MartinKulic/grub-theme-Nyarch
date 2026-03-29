@@ -1,0 +1,126 @@
+}
+
+#+image {
+#  file = "NyarchChan.png"
+#  top = 0
+#  left = 100%-754
+#}
+
+# Show progress
++ progress_bar {
+  left = 0%
+  top = 100%-30
+  width = 100%
+  height = 30
+  id = "__timeout__"
+  text= "@TIMEOUT_NOTIFICATION_LONG@"
+  font = "Rajdhani Regular 24"
+  text_color = "#fb542b"
+  fg_color = "#5df8fd"
+  bg_color = "#ee5650"
+  highlight_style = "progress_*.png"
+}
+
+# grub title
++ label {
+	font = "Rajdhani Regular 32"
+	left = 0
+	top = 8
+	width = 100%
+	align = "center"
+	color = "#2bcdfb"
+	text = "GR.U.B."
+}
+
++ label {
+	font = "Rajdhani Regular 24"
+	left = 0
+	top = 45
+	width = 100%
+	align = "center"
+	color = "#2bcdfb"
+	text = "GRand Unified Bootloader"
+}
+
+# decorative text
++ label {
+	font = "Rajdhani Regular 18"
+	left = 10
+	top = 50
+	width = 100%
+	color = "#1793d1"
+	text = "╔════════════════╗"
+}
+
++ label {
+	font = "Rajdhani Regular 18"
+	left = 10
+	top = 68
+	width = 100%
+	color = "#1793d1"
+	text = "║     [Menu 0]     ║"
+}
+
++ label {
+	font = "Rajdhani Regular 18"
+	left = 10
+	top = 86
+	width = 100%
+	color = "#1793d1"
+	text = "╟┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄╢"
+}
+
++ label {
+	font = "Rajdhani Regular 18"
+	left = 10
+	top = 104
+	width = 100%
+	color = "#1793d1"
+	text = "║ [>>] select OS ║"
+}
++ label {
+	font = "Rajdhani Regular 18"
+	left = 10
+	top = 122
+	width = 100%
+	color = "#1793d1"
+	text = "╙─┈  ┉ ┅━━ ┄┄┈┈┈━╜"
+}
+
+
+# controls
++ label {
+	font = "Rajdhani Regular 24"
+	left = 8
+	top = 100%-136
+	width = 100%
+	color = "#1793d1"
+	text = " ↑↓ - NAVIGATE"
+}
+
++ label {
+	font = "Rajdhani Regular 24"
+	left = 8
+	top = 100%-112
+	width = 100%
+	color = "#1793d1"
+	text = "<─┘ - CONFIRM"
+}
+
++ label {
+	font = "Rajdhani Regular 24"
+	left = 8
+	top = 100%-86
+	width = 100%
+	color = "#1793d1"
+	text = " E  - OPTIONS"
+}
+
++ label {
+	font = "Rajdhani Regular 24"
+	left = 8
+	top = 100%-60
+	width = 100%
+	color = "#1793d1"
+	text = " C  - COMMAND LINE"
+}

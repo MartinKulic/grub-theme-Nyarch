@@ -2,8 +2,10 @@
 GRUB_CNFG="./testing//grub"
 THIS_THEME_NAME="ArchChan-theme"
 THEMES_DIR="/usr/share/grub/themes/"
-#THEME_TXT_PATH="${THEMES_DIR}/${THIS_THEME_NAME}/Theme.txt"
-THEME_TXT_PATH="${THEMES_DIR}/${THIS_THEME_NAME}/Theme.txt"
+#THEME_TXT_PATH="${THEMES_DIR}/${THIS_THEME_NAME}/theme.txt"
+THEME_TXT_PATH="./testing/theme.txt"
+THEME_HEAD_PATH="./theme_head.txt"
+THEME_TAIL_PATH="./theme_tail.txt"
 
 IMG_HEIGHT=1445
 IMG_WIDTH=1009
@@ -55,6 +57,14 @@ function calculate_img_percentage ()
 
 }
 
+compose_theme_txt () {
+  cat $THEME_HEAD_PATH                 > $THEME_TXT_PATH
+  echo "  left = ${IMG_PER_LEFT}"     >> $THEME_TXT_PATH
+  echo "  top = ${IMG_TOP}"           >> $THEME_TXT_PATH
+  echo "  height = ${IMG_PER_HEIGHT}" >> $THEME_TXT_PATH
+  cat $THEME_TAIL_PATH               >> $THEME_TXT_PATH
+}
+
 post_install() {
   # Calculate dimension of image
   echo "Seting theme param"
@@ -64,7 +74,7 @@ post_install() {
   
   echo "Image dim: top: $IMG_TOP; left: $IMG_PER_LEFT; height: $IMG_PER_HEIGHT"
   # Modifie theme.txt
-
+  compose_theme_txt
 
   # Modifie GRUB config
   echo "Modifiing GRUB config"

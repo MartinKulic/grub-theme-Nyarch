@@ -1,0 +1,34 @@
+# general settings
+title-text: ""
+desktop-image: "background.png"
+desktop-color: "#000000"
+terminal-font: "Terminus (TTF) Regular 16"
+terminal-left: "0"
+terminal-top: "0"
+terminal-width: "100%"
+terminal-height: "100%"
+terminal-border: "0"
+
+
+# boot menu
++boot_menu {
+  left = 15%
+  width = 40%
+  top = 30%
+  height = 40%
+  item_font = "Rajdhani Regular 24"
+  item_color = "#5df8fd"
+  selected_item_font = "Rajdhani Regular 24"
+  selected_item_color = "#80FFCA"
+  icon_width = 24
+  icon_height = 24
+  item_height = 35
+  item_padding = 40 #40
+  item_icon_space = 20
+  item_spacing = 5
+  menu_pixmap_style = "no_*.png"
+  selected_item_pixmap_style = "highlight_*.png"
+}
+
++image {
+  file = "NyarchChan.png"

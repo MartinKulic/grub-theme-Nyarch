@@ -59,9 +59,9 @@ function calculate_img_percentage ()
 
 compose_theme_txt () {
   cat $THEME_HEAD_PATH                 > $THEME_TXT_PATH
-  echo "  left = ${IMG_PER_LEFT}"     >> $THEME_TXT_PATH
+  echo "  left = ${IMG_PER_LEFT}%"     >> $THEME_TXT_PATH
   echo "  top = ${IMG_TOP}"           >> $THEME_TXT_PATH
-  echo "  height = ${IMG_PER_HEIGHT}" >> $THEME_TXT_PATH
+  echo "  height = ${IMG_PER_HEIGHT}%" >> $THEME_TXT_PATH
   cat $THEME_TAIL_PATH               >> $THEME_TXT_PATH
 }
 

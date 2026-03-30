@@ -1,16 +1,13 @@
 #!/bin/bash
 
-USE_BARK_ICON_OPTION="-bark-logo"
+#USE_BARK_ICON_OPTION="-bark-logo"
 
-THEMES_DIR="/boot/grub/themes"
-THIS_THEME_NAME="ArchChan-theme"
-GRUB_CNFG="/etc/default/grub"
+source ./grub-theme-Nyarch.install
+
+THEME_HEAD_PATH="./temp/theme_head.txt"
+THEME_TAIL_PATH="./temp/theme_tail.txt"
+THEME_TXT_PATH="./ArchChan-theme/theme.txt"
 GRUB_CNFG_BACK="/etc/default/grub.backup"
-
-# Check command avalibility
-function has_command() {
-  command -v $1 > /dev/null
-}
 
 #Check arguments
 if [ "$#" -ge 1 ]; then
@@ -33,6 +30,16 @@ if [ ! -d "${THEMES_DIR}" ]; then
 else
   echo "$THEMES_DIR already exists"
 fi
+
+# Compose theme.txt
+echo "Seting theme parameters"
+resolution=$(get_primary_resolution) 
+calculate_img_percentage "$resolution"; 
+
+echo " Image dim: top: $IMG_TOP; left: ${IMG_PER_LEFT}%; height: ${IMG_PER_HEIGHT}%"
+# Modifie theme.txt
+compose_theme_txt
+
 
 # Copy theme
 echo "Copying theme to $THEMES_DIR"

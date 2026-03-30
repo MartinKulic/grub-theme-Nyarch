@@ -30,5 +30,13 @@ terminal-border: "0"
   selected_item_pixmap_style = "highlight_*.png"
 }
 
+# If image appears deformed or not to your liking consider editing following image element / component.
+# Value can be used in this formats:
+#    x	   Value in pixels
+#    p%	   Percentage
+#    p%+x  Mixture of both
+# For more information consult GRUB Theme file format documentation.
+
 +image {
+  # EDIT HERE
   file = "NyarchChan.png"

@@ -33,14 +33,14 @@ function calculate_img_percentage ()
   res="$1"
 
   if  [ -z "$res" ] || [ "$res" = "fail" ]; then
-    echo "Failed to retreve screen resolution. Fallback values will be used."
+    echo -e "\033[33mFailed to retreve screen resolution. Fallback values will be used.\033[0m"
     return
   fi
   
   monitor_width=${res%x*}
   monitor_height=${res#*x}
 
-  echo "width: ${monitor_width} x height: ${monitor_height}"
+  echo " Screen resolution width: ${monitor_width} x height: ${monitor_height}"
 
   new_img_width=$(( monitor_height * IMG_WIDTH / IMG_HEIGHT ))
   
@@ -52,27 +52,27 @@ function calculate_img_percentage ()
     new_img_width=$(( (monitor_height * IMG_PER_HEIGHT / 100)  * IMG_WIDTH / IMG_HEIGHT))
   fi
 
-  echo "new img width: $new_img_width"
+  #echo " Img width on screen: $new_img_width"
   IMG_PER_LEFT=$((100 - (new_img_width * 100 / monitor_width) )) 
 
 }
 
 compose_theme_txt () {
   cat $THEME_HEAD_PATH                 > $THEME_TXT_PATH
-  echo "  left = ${IMG_PER_LEFT}%"     >> $THEME_TXT_PATH
-  echo "  top = ${IMG_TOP}"           >> $THEME_TXT_PATH
-  echo "  height = ${IMG_PER_HEIGHT}%" >> $THEME_TXT_PATH
+  echo "  left = ${IMG_PER_LEFT}%  # Distance from left edge of the screen to start of the image. If image appears stretch consider increasing this value and vice versa" >> $THEME_TXT_PATH
+  echo "  top = ${IMG_TOP}  # Distance from top edge of the screen to top of the image"           >> $THEME_TXT_PATH
+  echo "  height = ${IMG_PER_HEIGHT}% # Height of the image." >> $THEME_TXT_PATH
   cat $THEME_TAIL_PATH               >> $THEME_TXT_PATH
 }
 
 post_install() {
   # Calculate dimension of image
-  echo "Seting theme param"
+  echo "Setting theme parameters"
   
   resolution=$(get_primary_resolution) 
   calculate_img_percentage "$resolution"; 
   
-  echo "Image dim: top: $IMG_TOP; left: $IMG_PER_LEFT; height: $IMG_PER_HEIGHT"
+  echo " Image dim: top: $IMG_TOP; left: ${IMG_PER_LEFT}%; height: ${IMG_PER_HEIGHT}%"
   # Modifie theme.txt
   compose_theme_txt
 

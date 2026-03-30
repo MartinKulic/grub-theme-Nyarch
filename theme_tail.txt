@@ -1,8 +1,11 @@
+# width = 754 # You may also use width property to define image width
 }
 
+# Following values work for my 1920x1080 screen
 #+image {
 #  file = "NyarchChan.png"
 #  top = 0
+#  height = 100%
 #  left = 100%-754
 #}
 

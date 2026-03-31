@@ -1,4 +1,4 @@
-# Maintainer: Your Name Martin J. Kulich
+# Maintainer: Martin J. Kulich
 pkgname=grub-theme-Nyarch
 pkgver=1.2
 pkgrel=1

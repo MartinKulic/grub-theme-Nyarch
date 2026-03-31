@@ -23,12 +23,12 @@ If you prefer it is possible to install theme through pacman package manager.
 
 
 
-A F T E R   I N S T A L L :
+ A F T E R   I N S T A L L :
 !!!
 In case image appears deformed or not to your liking consider editing image elemet atributes (top / left) in theme.txt after installation. theme.txt should be located inside /usr/share/grub/themes/ArchChan-theme directory.
 !!!
 
-
+### THANKS TO...
 Grub theme bassed on:
 https://github.com/adnksharp/CyberGRUB-2077
 

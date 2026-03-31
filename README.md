@@ -3,11 +3,19 @@
       chmod +x install.sh
 - run install.sh with elevated privilages and dessired arguments
       sudo ./install.sh
-             or
-      sudo ./install.sh -bark-logo
-        if you wish to use dog icon next to currend system boot menu option
 
-In case your screen resolution is diferent then 1920x1080, you may need to modifie size (top / left) of "mirko_boku_1.png" in theme.txt located inside Rumi-theme directory.
+ B U I L D I N G   P A C K A G E (Arch based systems only):
+If you prefer it is possible to install theme through pacman package manager.
+
+- inside extracted source run
+      makepkg -s
+- install builded package by
+      pacman -U grub-theme-Nyarch*.pkg.tar.zst
+
+
+In case image appears deformed or not to your liking consider editing image elemet atributes (top / left) in theme.txt after installation. theme.txt should be located inside /usr/share/grub/themes/ArchChan-theme directory.
+
+
 
 Grub theme bassed on:
 https://github.com/adnksharp/CyberGRUB-2077

@@ -18,13 +18,52 @@ function has_command() {
 }
 
 function get_primary_resolution(){
-  
-  if has_command xrandr; then
-    xrandr | awk -F'[ +]' '/primary/{print $4}'
-    
-  else
-    return "fail"
+# 1. Xrandr 
+  if [ -n "$DISPLAY" ] && has_command xrandr; then
+    res=$(xrandr | awk -F'[ +]' '/primary/{print $4}')
+    if [ -n "$res" ]; then
+    echo "$res"
+    return
+    fi
   fi
+
+# 2. temp file created by custom shellscript
+  if [ -f /tmp/grub_res ]; then    # (when combined with calamares install)
+    cat /tmp/grub_res
+    return
+  fi
+  
+# 3. DRM
+  for f in /sys/class/drm/*/modes; do
+    if [ -f "$f" ]; then
+      res=$(head -n1 "$f")
+      if [ -n "$res" ]; then
+        echo "$res"
+        return
+      fi
+    fi
+  done
+
+# 4. framebuffer
+  if [ -f /sys/class/graphics/fb0/virtual_size ]; then
+    res=$(cat /sys/class/graphics/fb0/virtual_size)
+    width=${res%,*}
+    height=${res#*,}
+    echo "${width}x${height}"
+    return
+  fi
+
+# 4. fbset
+  if has_command fbset; then
+    res=$(fbset | awk '/geometry/ {print $2"x"$3}')
+    if [ -n "$res" ]; then
+      echo "$res"
+      return
+    fi
+  fi
+
+  echo "fail"
+
 }
 
 function calculate_img_percentage ()
@@ -109,3 +148,4 @@ post_upgrade() {
     post_install
 }
 
+get_primary_resolution

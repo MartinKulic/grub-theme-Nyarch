@@ -148,9 +148,9 @@ post_install() {
   echo "Deleting temporary files"
   rm -fr "${TEMP_FILES_DIR}"
   
-  if [ -f /tmp/grub_res ]; then 
-    rm -fr /tmp/grub_res
-  fi
+  #if [ -f /tmp/grub_res ]; then 
+  #  rm -fr /tmp/grub_res
+  #fi
 }
 
 post_upgrade() {

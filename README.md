@@ -1,5 +1,5 @@
 # Theme previw
-![Preview demo image](https://github.com/MartinKulic/grub-theme-Nyarch/refs/heads/main/theme_demo.png)
+![Preview demo image](https://github.com/MartinKulic/grub-theme-Nyarch/blob/main/theme_demo.png?raw=true)
 
 ## Install instruction:
 - make install.sh executable by
